@@ -160,6 +160,19 @@
       "dependsOn": []
     },
     {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "name": "rsguniquestoragename/default/Microsoft.Authorization/NEW-GUID",
+      "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageName'))]",
+      "dependsOn": [
+        "[parameters('storageName')]"
+      ],
+      "properties": {
+        "roleDefinitionId": "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "principalId": "c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3"
+      }
+    },
+    {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2015-08-01",
       "name": "[variables('functionAppPlanName')]",
