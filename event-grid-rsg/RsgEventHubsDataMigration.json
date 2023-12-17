@@ -162,7 +162,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
-      "name": "rsguniquestoragename/default/Microsoft.Authorization/NEW-GUID",
+      "name": "rsguniquestoragename/default/Microsoft.Authorization/NEW-GUID123",
       "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageName'))]",
       "dependsOn": [
         "[parameters('storageName')]"
