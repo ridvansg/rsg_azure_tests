@@ -55,8 +55,8 @@
     "blobContainerName": "windturbinecapture",
     "functionAppPlanName": "[concat(parameters('functionAppName'),'Plan')]",
     "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', parameters('storageName'))]", 
-    "guid_role_assignment_containers_write": "[guid('rsgRoleAssignmentNameContainersWrite',copyIndex())]",
-    "guid_role_assignment_containers_blobs_write": "[guid('rsgRoleAssignmentNameContainersBlobsWrite',copyIndex())]"
+    "guid_role_assignment_containers_write": "[guid('rsgRoleAssignmentNameContainersWrite')]",
+    "guid_role_assignment_containers_blobs_write": "[guid('rsgRoleAssignmentNameContainersBlobsWrite')]"
   },
   "resources": [
     {
