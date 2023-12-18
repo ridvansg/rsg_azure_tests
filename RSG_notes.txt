@@ -3,6 +3,12 @@ az group create -l eastus -n rgDataMigration
 az deployment group create --resource-group rgDataMigration --template-uri https://raw.githubusercontent.com/ridvansg/rsg_azure_tests/main/event-grid-rsg/RsgEventHubsDataMigration.json --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
 -------------------------------
 {"status":"Failed","error":{"code":"DeploymentFailed",
+"target":"/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Resources/deployments/RsgEventHubsDataMigration","message":
+"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-deployment-operations for usage details.",
+"details":[{"code":"InvalidRoleAssignmentId","message":
+"The role assignment ID 'rsgRoleAssignmentNameContainersWrite' is not valid. The role assignment ID must be a GUID."}]}}
+------------------------------------
+{"status":"Failed","error":{"code":"DeploymentFailed",
 "target":"/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Resources/deployments/RsgEventHubsDataMigration"
 ,"message":"At least one resource deployment operation failed. Please list deployment operations for details. 
 Please see https://aka.ms/arm-deployment-operations for usage details.",

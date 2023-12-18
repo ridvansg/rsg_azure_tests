@@ -70,7 +70,7 @@
         "maximumThroughputUnits": "7"
       },
       "dependsOn": [
-        "rsgRoleAssignmentNameContainersBlobsWrite"
+        "[resourceId('Microsoft.Authorization/roleAssignments', 'rsgRoleAssignmentNameContainersBlobsWrite')]"
       ],
       "resources": [
         {
@@ -177,7 +177,7 @@
       "apiVersion": "2020-04-01-preview",
       "name": "rsgRoleAssignmentNameContainersBlobsWrite",
       "dependsOn": [
-              "rsgRoleAssignmentNameContainersWrite"
+            "[resourceId('Microsoft.Authorization/roleAssignments', 'rsgRoleAssignmentNameContainersWrite')]"
       ],
       "properties": {
         "roleDefinitionId": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/providers/Microsoft.Authorization/roleDefinitions/Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
@@ -211,7 +211,7 @@
       "kind": "functionapp",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('functionAppPlanName'))]",
-        "rsgRoleAssignmentNameContainersBlobsWrite"
+        "[resourceId('Microsoft.Authorization/roleAssignments', 'rsgRoleAssignmentNameContainersBlobsWrite')]"
       ],
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('functionAppPlanName'))]",
