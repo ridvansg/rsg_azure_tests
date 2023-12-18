@@ -54,7 +54,9 @@
   "variables": {
     "blobContainerName": "windturbinecapture",
     "functionAppPlanName": "[concat(parameters('functionAppName'),'Plan')]",
-    "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', parameters('storageName'))]"
+    "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', parameters('storageName'))]", 
+    "guid_role_assignment_containers_write": "[guid('rsgRoleAssignmentNameContainersWrite',copyIndex())]",
+    "guid_role_assignment_containers_blobs_write": "[guid('rsgRoleAssignmentNameContainersBlobsWrite',copyIndex())]"
   },
   "resources": [
     {
@@ -70,7 +72,7 @@
         "maximumThroughputUnits": "7"
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Authorization/roleAssignments', 'rsgRoleAssignmentNameContainersBlobsWrite')]"
+        "[variables('guid_role_assignment_containers_blobs_write')]"
       ],
       "resources": [
         {
@@ -162,7 +164,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
-      "name": "rsgRoleAssignmentNameContainersWrite",
+      "name": "[variables('guid_role_assignment_containers_write')]",
       "dependsOn": [
               "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]"
       ],
@@ -175,9 +177,9 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
-      "name": "rsgRoleAssignmentNameContainersBlobsWrite",
+      "name": "[variables('guid_role_assignment_containers_blobs_write')]",
       "dependsOn": [
-            "[resourceId('Microsoft.Authorization/roleAssignments', 'rsgRoleAssignmentNameContainersWrite')]"
+            "[variables('guid_role_assignment_containers_write')]"
       ],
       "properties": {
         "roleDefinitionId": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/providers/Microsoft.Authorization/roleDefinitions/Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
@@ -211,7 +213,7 @@
       "kind": "functionapp",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('functionAppPlanName'))]",
-        "[resourceId('Microsoft.Authorization/roleAssignments', 'rsgRoleAssignmentNameContainersBlobsWrite')]"
+        "[variables('guid_role_assignment_containers_blobs_write')]"
       ],
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('functionAppPlanName'))]",
