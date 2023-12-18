@@ -158,24 +158,24 @@
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2022-04-01",
-            "name": "[concat(parameters('storageName'),'/','readRole')]",
-            "dependsOn": [
-              "[parameters('storageName')]"
-            ],
-            "properties": {
-              "roleDefinitionId": "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-              "principalId": "c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3"
-            }
-        },
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2022-04-01",
             "name": "[concat(parameters('storageName'),'/','writeRole')]",
             "dependsOn": [
               "[parameters('storageName')]"
             ],
             "properties": {
               "roleDefinitionId": "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+              "principalId": "c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3"
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[concat(parameters('storageName'),'/','readRole')]",
+            "dependsOn": [
+              "[parameters('storageName')]"
+            ],
+            "properties": {
+              "roleDefinitionId": "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
               "principalId": "c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3"
             }
         }
