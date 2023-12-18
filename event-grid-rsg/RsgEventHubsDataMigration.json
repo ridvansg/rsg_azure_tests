@@ -162,7 +162,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
-      "name": "rsguniquestoragename/default/Microsoft.Authorization/NEW-GUID123",
+      "name": "[concat(parameters('storageName'),'/','readRole')]",
       "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageName'))]",
       "dependsOn": [
         "[parameters('storageName')]"
@@ -175,7 +175,7 @@
     {
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2022-04-01",
-      "name": "rsguniquestoragename/default/Microsoft.Authorization/NEW-GUID",
+      "name": "[concat(parameters('storageName'),'/','writeRole')]",
       "scope": "[concat('Microsoft.Storage/storageAccounts', '/', parameters('storageName'))]",
       "dependsOn": [
         "[parameters('storageName')]"
