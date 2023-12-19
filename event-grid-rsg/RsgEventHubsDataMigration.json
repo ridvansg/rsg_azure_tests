@@ -171,7 +171,7 @@
       "properties": {
         "roleDefinitionId": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/providers/Microsoft.Authorization/roleDefinitions/Microsoft.Storage/storageAccounts/blobServices/containers/write",
         "principalId": "c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3",
-        "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]"
+        "scope": "[variables('storageAccountid')]"
       }
     },
     {
@@ -184,7 +184,7 @@
       "properties": {
         "roleDefinitionId": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/providers/Microsoft.Authorization/roleDefinitions/Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
         "principalId": "c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3",
-        "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]"
+        "scope": "[variables('storageAccountid')]"
       }
     },
     {
