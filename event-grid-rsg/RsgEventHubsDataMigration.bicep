@@ -114,27 +114,32 @@ resource storage 'Microsoft.Storage/storageAccounts@2016-01-01' = {
   dependsOn: []
 }
 
-resource role_assignment_containers_write 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
-  name: guid_role_assign_containers_write
+// resource role_assignment_containers_write 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+//   name: guid_role_assign_containers_write
+//   properties: {
+//     // Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control.
+//     roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b7e6dc6d-f1e8-4753-8033-0f276bb0955b')
+//     // roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'Microsoft.Storage/storageAccounts/blobServices/containers/write')
+//     principalId: 'c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3'
+//     // scope: storageAccountid
+//   }
+//   dependsOn: [
+//     storage
+//   ]
+// }
+
+resource role_assignment_containers_blobs_write 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: guid_role_assign_containers_blobs_write
   properties: {
-    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'Microsoft.Storage/storageAccounts/blobServices/containers/write')
+    // Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control.
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b7e6dc6d-f1e8-4753-8033-0f276bb0955b')
+    // roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write')
     principalId: 'c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3'
     // scope: storageAccountid
   }
   dependsOn: [
     storage
-  ]
-}
-
-resource role_assignment_containers_blobs_write 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
-  name: guid_role_assign_containers_blobs_write
-  properties: {
-    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write')
-    principalId: 'c1d5bfd7-b4fa-48c7-ae62-6984d0bfb4e3'
-    // scope: storageAccountid
-  }
-  dependsOn: [
-    role_assignment_containers_write
+    // role_assignment_containers_write
   ]
 }
 

@@ -1,5 +1,409 @@
 az group create -l eastus -n rgDataMigration
+az deployment group create --resource-group rgDataMigration --template-file event-grid-rsg/RsgEventHubsDataMigration.bicep --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
+----------------------------
+az deployment group create --resource-group rgDataMigration --template-file event-grid-rsg/RsgEventHubsDataMigration.bicep --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(29,5) : Warning no-unused-vars: Variable "guid_role_assign_containers_write" is declared but never used. [https://aka.ms/bicep/linter/no-unused-vars]
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(31,31) : Warning no-loc-expr-outside-params: Use a parameter here instead of 'resourceGroup().location'. 'resourceGroup().location' and 'deployment().location' should only be used as a default value for parameters. [https://aka.ms/bicep/linter/no-loc-expr-outside-params]
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(157,3) : Warning BCP035: The specified "object" declaration is missing the following required properties: "status". If this is an inaccuracy in the documentation, please report it to the Bicep Team. [https://aka.ms/bicep-type-issues]
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(194,47) : Warning no-hardcoded-env-urls: Environment URLs should not be hardcoded. Use the environment() function to ensure compatibility across clouds. Found this disallowed host: "database.windows.net" [https://aka.ms/bicep/linter/no-hardcoded-env-urls]
 
+{
+  "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Resources/deployments/RsgEventHubsDataMigration",
+  "location": null,
+  "name": "RsgEventHubsDataMigration",
+  "properties": {
+    "correlationId": "bb26e594-9661-4980-aec2-bda2d2e27ed3",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+            "resourceType": "Microsoft.Authorization/roleAssignments"
+          }
+        ],
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace",
+        "resourceGroup": "rgDataMigration",
+        "resourceName": "rsgeventhubnamespace",
+        "resourceType": "Microsoft.EventHub/namespaces"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsgeventhubnamespace",
+            "resourceType": "Microsoft.EventHub/namespaces"
+          },
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsguniquestoragename",
+            "resourceType": "Microsoft.Storage/storageAccounts"
+          }
+        ],
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace/eventhubs/hubdatamigration",
+        "resourceGroup": "rgDataMigration",
+        "resourceName": "rsgeventhubnamespace/hubdatamigration",
+        "resourceType": "Microsoft.EventHub/namespaces/eventhubs"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsgsqlservername",
+            "resourceType": "Microsoft.Sql/servers"
+          }
+        ],
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/databases/rsgdatabasename",
+        "resourceGroup": "rgDataMigration",
+        "resourceName": "rsgsqlservername/rsgdatabasename",
+        "resourceType": "Microsoft.Sql/servers/databases"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsgsqlservername",
+            "resourceType": "Microsoft.Sql/servers"
+          }
+        ],
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/firewallRules/AllowAllAzureIps",
+        "resourceGroup": "rgDataMigration",
+        "resourceName": "rsgsqlservername/AllowAllAzureIps",
+        "resourceType": "Microsoft.Sql/servers/firewallRules"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsguniquestoragename",
+            "resourceType": "Microsoft.Storage/storageAccounts"
+          }
+        ],
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+        "resourceGroup": "rgDataMigration",
+        "resourceName": "3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+        "resourceType": "Microsoft.Authorization/roleAssignments"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/serverfarms/rsgappnamePlan",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsgappnamePlan",
+            "resourceType": "Microsoft.Web/serverfarms"
+          },
+          {
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+            "resourceType": "Microsoft.Authorization/roleAssignments"
+          },
+          {
+            "actionName": "listKeys",
+            "apiVersion": "2015-05-01-preview",
+            "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+            "resourceGroup": "rgDataMigration",
+            "resourceName": "rsguniquestoragename",
+            "resourceType": "Microsoft.Storage/storageAccounts"
+          }
+        ],
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/sites/rsgappname",
+        "resourceGroup": "rgDataMigration",
+        "resourceName": "rsgappname",
+        "resourceType": "Microsoft.Web/sites"
+      }
+    ],
+    "duration": "PT4M9.4870707S",
+    "error": null,
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace/eventhubs/hubdatamigration",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/databases/rsgdatabasename",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/firewallRules/AllowAllAzureIps",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/serverfarms/rsgappnamePlan",
+        "resourceGroup": "rgDataMigration"
+      },
+      {
+        "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/sites/rsgappname",
+        "resourceGroup": "rgDataMigration"
+      }
+    ],
+    "outputs": null,
+    "parameters": {
+      "eventHubName": {
+        "type": "String",
+        "value": "hubdatamigration"
+      },
+      "eventHubNamespaceName": {
+        "type": "String",
+        "value": "rsgeventhubnamespace"
+      },
+      "functionAppName": {
+        "type": "String",
+        "value": "rsgappname"
+      },
+      "sqlServerDatabaseName": {
+        "type": "String",
+        "value": "rsgdatabasename"
+      },
+      "sqlServerName": {
+        "type": "String",
+        "value": "rsgsqlservername"
+      },
+      "sqlServerPassword": {
+        "type": "SecureString"
+      },
+      "sqlServerUserName": {
+        "type": "String",
+        "value": "rsgusername"
+      },
+      "storageName": {
+        "type": "String",
+        "value": "rsguniquestoragename"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.EventHub",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "namespaces",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              null
+            ],
+            "properties": null,
+            "resourceType": "namespaces/eventhubs",
+            "zoneMappings": null
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Sql",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "servers",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "servers/databases",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              null
+            ],
+            "properties": null,
+            "resourceType": "servers/firewallRules",
+            "zoneMappings": null
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Storage",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "storageAccounts",
+            "zoneMappings": null
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Authorization",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              null
+            ],
+            "properties": null,
+            "resourceType": "roleAssignments",
+            "zoneMappings": null
+          }
+        ]
+      },
+      {
+        "id": null,
+        "namespace": "Microsoft.Web",
+        "providerAuthorizationConsentState": null,
+        "registrationPolicy": null,
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "serverfarms",
+            "zoneMappings": null
+          },
+          {
+            "aliases": null,
+            "apiProfiles": null,
+            "apiVersions": null,
+            "capabilities": null,
+            "defaultApiVersion": null,
+            "locationMappings": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "sites",
+            "zoneMappings": null
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "templateHash": "6864941083702817256",
+    "templateLink": null,
+    "timestamp": "2023-12-21T07:57:40.967779+00:00",
+    "validatedResources": null
+  },
+  "resourceGroup": "rgDataMigration",
+  "tags": null,
+  "type": "Microsoft.Resources/deployments"
+}
+------------------------
+ az deployment group create --resource-group rgDataMigration --template-file event-grid-rsg/RsgEventHubsDataMigration.bicep --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(31,31) : Warning no-loc-expr-outside-params: Use a parameter here instead of 'resourceGroup().location'. 'resourceGroup().location' and 'deployment().location' should only be used as a default value for parameters. [https://aka.ms/bicep/linter/no-loc-expr-outside-params]
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(152,3) : Warning BCP035: The specified "object" declaration is missing the following required properties: "status". If this is an inaccuracy in the documentation, please report it to the Bicep Team. [https://aka.ms/bicep-type-issues]
+/home/ridvan/az204/rsg_azure_tests/event-grid-rsg/RsgEventHubsDataMigration.bicep(189,47) : Warning no-hardcoded-env-urls: Environment URLs should not be hardcoded. Use the environment() function to ensure compatibility across clouds. Found this disallowed host: "database.windows.net" [https://aka.ms/bicep/linter/no-hardcoded-env-urls]
+
+{"status":"Failed","error":{"code":"DeploymentFailed",
+"target":"/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Resources/deployments/RsgEventHubsDataMigration",
+"message":"At least one resource deployment operation failed. Please list deployment operations for details. 
+Please see https://aka.ms/arm-deployment-operations for usage details.",
+"details":[{"code":"InvalidTemplate","message":
+"Unable to process template language expressions for resource '/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/4f9bb405-f06d-51c0-b9d6-e50a8a25ec9e' 
+at line '164' and column '5'. 'Unable to evaluate template language function 'subscriptionResourceId': function requires exactly one multi-segmented argument which must be resource type including resource provider namespace. Current function arguments 'Microsoft.Authorization/roleDefinitions,Microsoft.Storage/storageAccounts/blobServices/containers/write'. Please see https://aka.ms/arm-resource-functions/#subscriptionresourceid for usage details.'","additionalInfo":[{"type":"TemplateViolation","info":{"lineNumber":164,"linePosition":5,"path":""}}]}]}}
+----------------------
+az deployment group create --resource-group rgDataMigration --template-file main/event-grid-rsg/RsgEventHubsDataMigration.bicep --parameters eventHubNa
+mespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor453
+9 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
+-
+
+az deployment group create --resource-group rgDataMigration --template-file event-grid-rsg/RsgEventHubsDataMigration.bicep --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
+-----------------
+az deployment group create --resource-group rgDataMigration --template-uri https://raw.githubusercontent.com/ridvansg/rsg_azure_tests/main/event-grid-rsg/RsgEventHubsDataMigration.bicep --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
+Failed to parse 'https://raw.githubusercontent.com/ridvansg/rsg_azure_tests/main/event-grid-rsg/RsgEventHubsDataMigration.bicep', please check whether it is a valid JSON format
+----------------------
 az deployment group create --resource-group rgDataMigration --template-uri https://raw.githubusercontent.com/ridvansg/rsg_azure_tests/main/event-grid-rsg/RsgEventHubsDataMigration.json --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
 -----------------------------------------
 az deployment group create --resource-group rgDataMigration --template-uri https://raw.githubusercontent.com/ridvansg/rsg_azure_tests/main/event-grid-rsg/RsgEventHubsDataMigration.json --parameters eventHubNamespaceName=rsgeventhubnamespace eventHubName=hubdatamigration sqlServerName=rsgsqlservername sqlServerUserName=rsgusername sqlServerPassword=Incektiplaktor4539 sqlServerDatabaseName=rsgdatabasename storageName=rsguniquestoragename functionAppName=rsgappname
