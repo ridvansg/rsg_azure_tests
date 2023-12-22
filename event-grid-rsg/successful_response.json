@@ -1,0 +1,373 @@
+{
+    "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Resources/deployments/RsgEventHubsDataMigration",
+    "location": null,
+    "name": "RsgEventHubsDataMigration",
+    "properties": {
+      "correlationId": "bb26e594-9661-4980-aec2-bda2d2e27ed3",
+      "debugSetting": null,
+      "dependencies": [
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+              "resourceType": "Microsoft.Authorization/roleAssignments"
+            }
+          ],
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace",
+          "resourceGroup": "rgDataMigration",
+          "resourceName": "rsgeventhubnamespace",
+          "resourceType": "Microsoft.EventHub/namespaces"
+        },
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsgeventhubnamespace",
+              "resourceType": "Microsoft.EventHub/namespaces"
+            },
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsguniquestoragename",
+              "resourceType": "Microsoft.Storage/storageAccounts"
+            }
+          ],
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace/eventhubs/hubdatamigration",
+          "resourceGroup": "rgDataMigration",
+          "resourceName": "rsgeventhubnamespace/hubdatamigration",
+          "resourceType": "Microsoft.EventHub/namespaces/eventhubs"
+        },
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsgsqlservername",
+              "resourceType": "Microsoft.Sql/servers"
+            }
+          ],
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/databases/rsgdatabasename",
+          "resourceGroup": "rgDataMigration",
+          "resourceName": "rsgsqlservername/rsgdatabasename",
+          "resourceType": "Microsoft.Sql/servers/databases"
+        },
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsgsqlservername",
+              "resourceType": "Microsoft.Sql/servers"
+            }
+          ],
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/firewallRules/AllowAllAzureIps",
+          "resourceGroup": "rgDataMigration",
+          "resourceName": "rsgsqlservername/AllowAllAzureIps",
+          "resourceType": "Microsoft.Sql/servers/firewallRules"
+        },
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsguniquestoragename",
+              "resourceType": "Microsoft.Storage/storageAccounts"
+            }
+          ],
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+          "resourceGroup": "rgDataMigration",
+          "resourceName": "3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+          "resourceType": "Microsoft.Authorization/roleAssignments"
+        },
+        {
+          "dependsOn": [
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/serverfarms/rsgappnamePlan",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsgappnamePlan",
+              "resourceType": "Microsoft.Web/serverfarms"
+            },
+            {
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+              "resourceType": "Microsoft.Authorization/roleAssignments"
+            },
+            {
+              "actionName": "listKeys",
+              "apiVersion": "2015-05-01-preview",
+              "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+              "resourceGroup": "rgDataMigration",
+              "resourceName": "rsguniquestoragename",
+              "resourceType": "Microsoft.Storage/storageAccounts"
+            }
+          ],
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/sites/rsgappname",
+          "resourceGroup": "rgDataMigration",
+          "resourceName": "rsgappname",
+          "resourceType": "Microsoft.Web/sites"
+        }
+      ],
+      "duration": "PT4M9.4870707S",
+      "error": null,
+      "mode": "Incremental",
+      "onErrorDeployment": null,
+      "outputResources": [
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Authorization/roleAssignments/3ddbaaaa-a327-5c20-bbfb-3592914669a2",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.EventHub/namespaces/rsgeventhubnamespace/eventhubs/hubdatamigration",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/databases/rsgdatabasename",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Sql/servers/rsgsqlservername/firewallRules/AllowAllAzureIps",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Storage/storageAccounts/rsguniquestoragename",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/serverfarms/rsgappnamePlan",
+          "resourceGroup": "rgDataMigration"
+        },
+        {
+          "id": "/subscriptions/cafb95de-39ce-4f0d-a9fe-db89b93c7ea2/resourceGroups/rgDataMigration/providers/Microsoft.Web/sites/rsgappname",
+          "resourceGroup": "rgDataMigration"
+        }
+      ],
+      "outputs": null,
+      "parameters": {
+        "eventHubName": {
+          "type": "String",
+          "value": "hubdatamigration"
+        },
+        "eventHubNamespaceName": {
+          "type": "String",
+          "value": "rsgeventhubnamespace"
+        },
+        "functionAppName": {
+          "type": "String",
+          "value": "rsgappname"
+        },
+        "sqlServerDatabaseName": {
+          "type": "String",
+          "value": "rsgdatabasename"
+        },
+        "sqlServerName": {
+          "type": "String",
+          "value": "rsgsqlservername"
+        },
+        "sqlServerPassword": {
+          "type": "SecureString"
+        },
+        "sqlServerUserName": {
+          "type": "String",
+          "value": "rsgusername"
+        },
+        "storageName": {
+          "type": "String",
+          "value": "rsguniquestoragename"
+        }
+      },
+      "parametersLink": null,
+      "providers": [
+        {
+          "id": null,
+          "namespace": "Microsoft.EventHub",
+          "providerAuthorizationConsentState": null,
+          "registrationPolicy": null,
+          "registrationState": null,
+          "resourceTypes": [
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                "eastus"
+              ],
+              "properties": null,
+              "resourceType": "namespaces",
+              "zoneMappings": null
+            },
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                null
+              ],
+              "properties": null,
+              "resourceType": "namespaces/eventhubs",
+              "zoneMappings": null
+            }
+          ]
+        },
+        {
+          "id": null,
+          "namespace": "Microsoft.Sql",
+          "providerAuthorizationConsentState": null,
+          "registrationPolicy": null,
+          "registrationState": null,
+          "resourceTypes": [
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                "eastus"
+              ],
+              "properties": null,
+              "resourceType": "servers",
+              "zoneMappings": null
+            },
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                "eastus"
+              ],
+              "properties": null,
+              "resourceType": "servers/databases",
+              "zoneMappings": null
+            },
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                null
+              ],
+              "properties": null,
+              "resourceType": "servers/firewallRules",
+              "zoneMappings": null
+            }
+          ]
+        },
+        {
+          "id": null,
+          "namespace": "Microsoft.Storage",
+          "providerAuthorizationConsentState": null,
+          "registrationPolicy": null,
+          "registrationState": null,
+          "resourceTypes": [
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                "eastus"
+              ],
+              "properties": null,
+              "resourceType": "storageAccounts",
+              "zoneMappings": null
+            }
+          ]
+        },
+        {
+          "id": null,
+          "namespace": "Microsoft.Authorization",
+          "providerAuthorizationConsentState": null,
+          "registrationPolicy": null,
+          "registrationState": null,
+          "resourceTypes": [
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                null
+              ],
+              "properties": null,
+              "resourceType": "roleAssignments",
+              "zoneMappings": null
+            }
+          ]
+        },
+        {
+          "id": null,
+          "namespace": "Microsoft.Web",
+          "providerAuthorizationConsentState": null,
+          "registrationPolicy": null,
+          "registrationState": null,
+          "resourceTypes": [
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                "eastus"
+              ],
+              "properties": null,
+              "resourceType": "serverfarms",
+              "zoneMappings": null
+            },
+            {
+              "aliases": null,
+              "apiProfiles": null,
+              "apiVersions": null,
+              "capabilities": null,
+              "defaultApiVersion": null,
+              "locationMappings": null,
+              "locations": [
+                "eastus"
+              ],
+              "properties": null,
+              "resourceType": "sites",
+              "zoneMappings": null
+            }
+          ]
+        }
+      ],
+      "provisioningState": "Succeeded",
+      "templateHash": "6864941083702817256",
+      "templateLink": null,
+      "timestamp": "2023-12-21T07:57:40.967779+00:00",
+      "validatedResources": null
+    },
+    "resourceGroup": "rgDataMigration",
+    "tags": null,
+    "type": "Microsoft.Resources/deployments"
+  }
